@@ -1,0 +1,9 @@
+llama-index
+llama-index-embeddings-azure-openai
+llama-index-llms-azure-openai
+langfuse
+tqdm
+typer
+pydantic
+pydantic-settings
+python-dotenv
