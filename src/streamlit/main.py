@@ -1,3 +1,6 @@
+from typing import Optional
+from typing_extensions import Annotated
+import typer
 import streamlit as st
 
 from llama_index.core import (
@@ -11,8 +14,9 @@ from llama_index.core.indices.query.query_transform import HyDEQueryTransform
 from src.utils import initialize
 
 
-def main(env_path: str):
-    initialize(env_path)
+def main(env_path: Annotated[Optional[str], typer.Argument()] = None):
+    if env_path is not None:
+        initialize(env_path)
 
     st.header('Simple Yuuri chatbot', divider='rainbow')
 
@@ -52,4 +56,4 @@ def main(env_path: str):
 
 
 if __name__ == '__main__':
-    main("local.env")
+    typer.run(main)
